@@ -223,6 +223,7 @@ export const MyComposition = () => {
     );
 
     map.once("idle", () => continueRender(handle));
+    map.triggerRepaint();
   }, [
     cameraDistance,
     cameraRoute,
