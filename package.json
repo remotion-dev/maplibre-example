@@ -1,17 +1,23 @@
 {
-  "name": "mapper",
+  "name": "maplibre-example",
   "version": "1.0.0",
-  "description": "My Remotion video",
+  "description": "A Remotion example demonstrating MapLibre GL JS camera animations",
+  "scripts": {
+    "start": "remotion studio",
+    "build": "remotion render MyComp out/video.mp4 --concurrency=1",
+    "upgrade": "remotion upgrade",
+    "test": "eslint src && tsc"
+  },
   "repository": {},
   "license": "UNLICENSED",
   "private": true,
   "dependencies": {
     "@remotion/cli": "4.0.457",
+    "@turf/turf": "^7.3.5",
+    "maplibre-gl": "^5.24.0",
     "react": "19.2.3",
     "react-dom": "19.2.3",
-    "remotion": "4.0.457",
-    "@remotion/tailwind-v4": "4.0.457",
-    "tailwindcss": "4.0.0"
+    "remotion": "4.0.457"
   },
   "devDependencies": {
     "@remotion/eslint-config-flat": "4.0.457",
@@ -21,13 +27,5 @@
     "prettier": "3.8.1",
     "typescript": "5.9.3"
   },
-  "scripts": {
-    "dev": "remotionb studio",
-    "build": "remotionb bundle",
-    "upgrade": "remotionb upgrade",
-    "lint": "eslint src && tsc"
-  },
-  "sideEffects": [
-    "*.css"
-  ]
+  "packageManager": "npm@10.9.2"
 }

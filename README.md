@@ -1,45 +1,62 @@
-# Remotion video
+# Remotion MapLibre example
 
-<p align="center">
-  <a href="https://github.com/remotion-dev/logo">
-    <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="https://github.com/remotion-dev/logo/raw/main/animated-logo-banner-dark.apng">
-      <img alt="Animated Remotion Logo" src="https://github.com/remotion-dev/logo/raw/main/animated-logo-banner-light.gif">
-    </picture>
-  </a>
-</p>
+https://github.com/user-attachments/assets/e394fbf1-66d7-4e28-8f6e-ffa9428956e4
 
-Welcome to your Remotion project!
+This example shows how to render deterministic MapLibre GL JS map animations with Remotion.
+
+It is based on the [Remotion Mapbox example](https://github.com/remotion-dev/mapbox-example), adapted to use MapLibre without a Mapbox access token.
+
+It demonstrates:
+
+- Rendering a MapLibre map in a Remotion composition
+- Animating a camera along a route
+- Revealing a GeoJSON route line over time
+- Moving a point along the route using Turf
+- Rendering WebGL output with the `angle` OpenGL renderer
+
+Unlike the Mapbox example, this example does not require a Mapbox access token.
+It uses the public OpenFreeMap MapLibre style.
+
+## Special considerations for using Remotion with MapLibre
+
+- Map rendering uses WebGL, so the `angle` renderer is enabled in `remotion.config.ts`.
+- Render with `--concurrency=1` for predictable GPU-backed map rendering.
+- MapLibre animations and transitions are disabled with `interactive: false` and `fadeDuration: 0`.
+- Initial map loading and per-frame updates are wrapped with `delayRender()` / `continueRender()`.
+- GeoJSON sources and MapLibre layers are used for the route and moving point.
+- Turf is used for route distances, slicing, and positions along the route.
 
 ## Commands
 
-**Install Dependencies**
+**Install dependencies**
 
 ```console
-bun install
+npm i
 ```
 
-**Start Preview**
+**Start preview**
 
 ```console
-bun run dev
+npm start
 ```
 
 **Render video**
 
 ```console
-bunx remotion render
+npm run build
 ```
 
 **Upgrade Remotion**
 
 ```console
-bunx remotion upgrade
+npm run upgrade
 ```
 
 ## Docs
 
-Get started with Remotion by reading the [fundamentals page](https://www.remotion.dev/docs/the-fundamentals).
+- [Remotion fundamentals](https://www.remotion.dev/docs/the-fundamentals)
+- [MapLibre GL JS](https://maplibre.org/maplibre-gl-js/docs/)
+- [Turf.js](https://turfjs.org/)
 
 ## Help
 
